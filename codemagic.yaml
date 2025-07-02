@@ -1,13 +1,13 @@
 workflows:
-  build-apk:
-    name: Build Android APK
-    max_build_duration: 30
+  ios-workflow:
+    name: Build iOS app
     environment:
       flutter: stable
+      xcode: latest
     scripts:
-      - name: Get packages
+      - name: Get Flutter packages
         script: flutter pub get
-      - name: Build APK
-        script: flutter build apk --release
+      - name: Build iOS app
+        script: flutter build ios --release
     artifacts:
-      - build/app/outputs/flutter-apk/app-release.apk
+      - build/ios/ipa/*.ipa
